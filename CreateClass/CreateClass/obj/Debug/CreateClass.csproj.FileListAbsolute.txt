@@ -1,0 +1,6 @@
+C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\bin\Debug\CreateClass.exe.config
+C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\bin\Debug\CreateClass.exe
+C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\bin\Debug\CreateClass.pdb
+C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\obj\Debug\CreateClass.csproj.CoreCompileInputs.cache
+C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\obj\Debug\CreateClass.exe
+C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\obj\Debug\CreateClass.pdb
