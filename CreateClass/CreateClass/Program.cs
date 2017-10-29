@@ -10,16 +10,25 @@ namespace CreateClass
     {
         static void Main(string[] args)
         {
+            /*
             Person person = new Person("Donald Trump", 19490101, Genders.Male);
             System.Console.WriteLine(person.ToString());
 
-            Room room1 = new Room(23);
-            Person employee1 = new Employee("Sarah Huckabee Sanders", 19710101, Genders.Female, 20000, "Spokesperson", room1);
+            Person employee1 = new Employee("Sarah Huckabee Sanders", 19710101, Genders.Female, 20000, "Spokesperson");
+            employee1.room = new Room(23);
             System.Console.WriteLine(employee1.ToString());
 
-            Room room2 = new Room(21);
-            Person employee2 = new Employee("John Kelly", 19510101, Genders.Male, 30000, "General", room2);
+            Person employee2 = new Employee("John Kelly", 19510101, Genders.Male, 30000, "General");
+            employee2.room = new Room(21);
             System.Console.WriteLine(employee2.ToString());
+            */
+
+            Employee Kovacs = new Employee("Géza", 19910101, Genders.Male, 1000, "léhűtő");
+            Kovacs.Room = new Room(111);
+            Employee Kovacs2 = (Employee)Kovacs.Clone();
+            Kovacs2.Room.Number = 112;
+            Console.WriteLine("original: " + Kovacs.ToString());
+            Console.WriteLine("clone: " + Kovacs2.ToString());
 
             // Keep the console window open in debug mode.
             System.Console.WriteLine("Press any key to exit.");
@@ -46,13 +55,13 @@ namespace CreateClass
         } 
     }
 
-    public class Employee : Person
+    public class Employee : Person, ICloneable
     {
         private double salary;
         private string profession;
-        private Room room;
+        public Room Room;
 
-        public Employee(string name, int birthDate, Genders gender, double salary, string profession, Room room)
+        public Employee(string name, int birthDate, Genders gender, double salary, string profession)
             : base(name, birthDate, gender)
         {
             this.name = name;
@@ -60,29 +69,36 @@ namespace CreateClass
             this.gender = gender;
             this.salary = salary;
             this.profession = profession;
-            this.room = room;
         }
 
         public override string ToString()
         {
-            string StringToPrint = name + ", who is a " + gender + ", works as a " + profession + " for " + salary + "$ a month and was born on " + birthDate + ". Works in room " + room.GetRoomNumber(); 
+            string StringToPrint = name + ", who is a " + gender + ", works as a " + profession + " for " + salary + "$ a month and was born on " + birthDate + ". Works in room " + Room.Number; 
             return StringToPrint;
         }
+
+        public object Clone()
+        {
+            Employee newEmployee = (Employee)this.MemberwiseClone();
+            newEmployee.Room = new Room(Room.Number);
+            return newEmployee;
+        }
+
     }
 
     public class Room
     {
-        private int roomNumber;
+        public int Number;
 
         public Room(int roomNumber) 
         {
-            this.roomNumber = roomNumber;
+            this.Number = roomNumber;
         }
+    }
 
-        public int GetRoomNumber() 
-        {
-            return roomNumber;
-        }
+    public interface ICloneable
+    {
+        object Clone();
     }
 
     public enum Genders
