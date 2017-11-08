@@ -4,3 +4,4 @@ C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\Crea
 C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\obj\Debug\CreateClass.csproj.CoreCompileInputs.cache
 C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\obj\Debug\CreateClass.exe
 C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\obj\Debug\CreateClass.pdb
+C:\Users\amala\OneDrive\Dokumentumok\Codecool\C#\.NET_module_SI_assignments\CreateClass\CreateClass\obj\Debug\CreateClass.csprojResolveAssemblyReference.cache

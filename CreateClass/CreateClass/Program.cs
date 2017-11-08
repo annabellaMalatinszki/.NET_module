@@ -11,19 +11,19 @@ namespace CreateClass
         static void Main(string[] args)
         {
             /*
-            Person person = new Person("Donald Trump", 19490101, Genders.Male);
+            Person person = new Person("Donald Trump", new DateTime(1949,01,01), Genders.Male);
             System.Console.WriteLine(person.ToString());
 
-            Person employee1 = new Employee("Sarah Huckabee Sanders", 19710101, Genders.Female, 20000, "Spokesperson");
+            Person employee1 = new Employee("Sarah Huckabee Sanders", new DateTime(1971.01.01), Genders.Female, 20000, "Spokesperson");
             employee1.room = new Room(23);
             System.Console.WriteLine(employee1.ToString());
 
-            Person employee2 = new Employee("John Kelly", 19510101, Genders.Male, 30000, "General");
+            Person employee2 = new Employee("John Kelly", new DateTime(1951,01,01), Genders.Male, 30000, "General");
             employee2.room = new Room(21);
             System.Console.WriteLine(employee2.ToString());
             */
 
-            Employee Kovacs = new Employee("Géza", 19910101, Genders.Male, 1000, "léhűtő");
+            Employee Kovacs = new Employee("Géza", new DateTime(1991,01,01), Genders.Male, 1000, "léhűtő");
             Kovacs.Room = new Room(111);
             Employee Kovacs2 = (Employee)Kovacs.Clone();
             Kovacs2.Room.Number = 112;
@@ -38,10 +38,10 @@ namespace CreateClass
     public class Person
     {
         public string name;
-        public int birthDate;
+        public DateTime birthDate;
         public Genders gender;
 
-        public Person(String name, int birthDate, Genders gender)
+        public Person(String name, DateTime birthDate, Genders gender)
         {
             this.name = name;
             this.birthDate = birthDate;
@@ -61,7 +61,7 @@ namespace CreateClass
         private string profession;
         public Room Room;
 
-        public Employee(string name, int birthDate, Genders gender, double salary, string profession)
+        public Employee(string name, DateTime birthDate, Genders gender, double salary, string profession)
             : base(name, birthDate, gender)
         {
             this.name = name;
@@ -94,11 +94,6 @@ namespace CreateClass
         {
             this.Number = roomNumber;
         }
-    }
-
-    public interface ICloneable
-    {
-        object Clone();
     }
 
     public enum Genders
