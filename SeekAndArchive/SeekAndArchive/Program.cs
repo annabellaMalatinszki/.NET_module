@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.IO.Compression;
 
 namespace SeekAndArchive
 {
@@ -12,6 +13,7 @@ namespace SeekAndArchive
     {
         static List<FileInfo> FoundFiles;
         static List<FileSystemWatcher> watchers;
+        static List<DirectoryInfo> archiveDirectories;
 
         static void Main(string[] args)
         {
@@ -20,6 +22,7 @@ namespace SeekAndArchive
             
             FoundFiles = new List<FileInfo>();
             watchers = new List<FileSystemWatcher>();
+            archiveDirectories = new List<DirectoryInfo>();
 
             DirectoryInfo rootDir = new DirectoryInfo(directoryName);
             if (!rootDir.Exists)
@@ -44,6 +47,12 @@ namespace SeekAndArchive
                 watchers.Add(newWatcher);
             }
 
+            for (int i = 0; i < FoundFiles.Count; i++)
+            {
+                archiveDirectories.Add(Directory.CreateDirectory("C:\\Users\\amala\\Desktop\\Archives\\archive" + i.ToString()));
+                Console.WriteLine("created");
+            }
+
             Console.ReadKey();
         }
 
@@ -66,10 +75,26 @@ namespace SeekAndArchive
 
         static void WatcherChanged(object sender, FileSystemEventArgs e)
         {
-            if (e.ChangeType == WatcherChangeTypes.Changed)
+            Console.WriteLine("{0} has been changed!", e.FullPath);
+            FileSystemWatcher senderWatcher = (FileSystemWatcher)sender;
+            int index = watchers.IndexOf(senderWatcher, 0);
+            ArchiveFile(archiveDirectories[index], FoundFiles[index]);
+        }
+
+        static void ArchiveFile(DirectoryInfo archiveDirectory, FileInfo fileToArchive)
+        {
+            FileStream input = fileToArchive.OpenRead();
+            FileStream output = File.Create(archiveDirectory.FullName + @"\" + fileToArchive.Name + ".gz");
+            GZipStream Compressor = new GZipStream(output, CompressionMode.Compress);
+            int b = input.ReadByte();
+            while (b != -1)
             {
-                Console.WriteLine("{0} has been changed!", e.FullPath);
+                Compressor.WriteByte((byte)b);
+                b = input.ReadByte();
             }
+            Compressor.Close();
+            input.Close();
+            output.Close();
         }
     }
 }
