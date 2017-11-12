@@ -50,7 +50,6 @@ namespace SeekAndArchive
             for (int i = 0; i < FoundFiles.Count; i++)
             {
                 archiveDirectories.Add(Directory.CreateDirectory("C:\\Users\\amala\\Desktop\\Archives\\archive" + i.ToString()));
-                Console.WriteLine("created");
             }
 
             Console.ReadKey();
