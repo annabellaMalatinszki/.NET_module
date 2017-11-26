@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputValidation", "InputValidation\InputValidation.csproj", "{B3C83C4A-51C4-456D-B532-234CFBBCBEF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputValidationTest", "InputValidationTest\InputValidationTest.csproj", "{D5C77473-5315-40CC-8EB2-B733C1CE7B22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3C83C4A-51C4-456D-B532-234CFBBCBEF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3C83C4A-51C4-456D-B532-234CFBBCBEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3C83C4A-51C4-456D-B532-234CFBBCBEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3C83C4A-51C4-456D-B532-234CFBBCBEF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C77473-5315-40CC-8EB2-B733C1CE7B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C77473-5315-40CC-8EB2-B733C1CE7B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C77473-5315-40CC-8EB2-B733C1CE7B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C77473-5315-40CC-8EB2-B733C1CE7B22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B875526-9267-48C6-9E3E-17E975430F5D}
+	EndGlobalSection
+EndGlobal
