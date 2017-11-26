@@ -38,7 +38,6 @@ namespace InputValidation
             }
 
             phoneTextBox.Text = ReformatPhone(phoneTextBox.Text);
-
         }
 
         private string ReformatPhone(string phone)
