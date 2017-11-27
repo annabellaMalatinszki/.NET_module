@@ -30,6 +30,7 @@ namespace SingleInstance
                 }
             }
 
+            //Checking if more than one instance of the application is running
             var exists = System.Diagnostics.Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(System.Reflection.Assembly.GetEntryAssembly().Location)).Count() > 1;
             Console.WriteLine(exists);
 
