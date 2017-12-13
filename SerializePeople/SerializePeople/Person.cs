@@ -10,7 +10,7 @@ using System.IO;
 namespace SerializePeople
 {
     [Serializable]
-    public class Person: IDeserializationCallback
+    public class Person: ISerializable
     {
         public string name;
 
@@ -34,12 +34,12 @@ namespace SerializePeople
             this.age = (new DateTime(1, 1, 1) + span).Year - 1;
         }
 
-        void IDeserializationCallback.OnDeserialization(Object sender)
+        public Person(SerializationInfo info, StreamingContext context)
         {
-            TimeSpan span = DateTime.Now - birthDate;
-            age = (new DateTime(1, 1, 1) + span).Year - 1;
+            name = (string)info.GetValue("props", typeof(string));
+            birthDate = (DateTime)info.GetValue("props", typeof(DateTime));
+            gender = (Gender)info.GetValue("props", typeof(Gender));
         }
-
 
         public override string ToString()
         {
@@ -62,6 +62,13 @@ namespace SerializePeople
             reader.Close();
 
             return person;
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("props", name, typeof(string));
+            info.AddValue("props", birthDate, typeof(DateTime));
+            info.AddValue("props", gender, typeof(Gender));
         }
     }
 
